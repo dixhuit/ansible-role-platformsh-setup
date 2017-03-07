@@ -28,7 +28,7 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Get platform project if not present
+- name: Get platform project if not present.
   shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }} -y"
   become: "{{ vagrant_user }}"
   args:
@@ -37,7 +37,7 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Run `platform build`
+- name: Run `platform build`.
   shell: "{{ platformsh_install_dir }}/platform build"
   become: "{{ vagrant_user }}"
   args:
@@ -74,6 +74,6 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Sync database from remote master environment
+- name: Sync database from remote master environment.
   shell: "drush sql-sync @{{ platformsh_app_name }}.master @{{ platformsh_app_name }}._local -y"
   become: "{{ vagrant_user }}"
