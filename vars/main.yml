@@ -1,0 +1,1 @@
+platformsh_app_root: "{{platformsh_app_parent }}/{{ platformsh_app_name }}"
