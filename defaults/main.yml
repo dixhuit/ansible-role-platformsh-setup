@@ -4,4 +4,5 @@ platformsh_install_dir: "/home/{{ platformsh_user }}/.composer/vendor/bin"
 platformsh_config_dir: "/home/{{ platformsh_user }}/.platformsh"
 platformsh_app_id: xxxxxxxxxxxxx
 platformsh_app_name: myapp
-platformsh_app_root: "/var/www/drupalvm/{{ platformsh_app_name }}"
+platformsh_app_parent: "/var/www/drupalvm"
+platformsh_app_root: "{{platformsh_app_parent }}/{{ platformsh_app_name }}"

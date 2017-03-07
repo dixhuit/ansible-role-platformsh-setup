@@ -28,15 +28,11 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Ensure app root directory exists
-  file:
-    path: "{{ platformsh_app_root }}"
-    state: directory
-
 - name: Get platform project if not present
-  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }}"
+  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }} -y"
   become: "{{ vagrant_user }}"
   args:
+    chdir: "{{ platformsh_app_parent }}"
     creates: "{{ platformsh_app_root }}/.platform.app.yaml"
 
 # ------------------------------------------------------------------------------
