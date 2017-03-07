@@ -1,8 +1,8 @@
 ---
 
-# Invoking `platform cc` ensures that the cli will create its ".platformsh" and
+# Running `platform cc` ensures that the cli will create its ".platformsh" and
 # "cache" directories if required.
-- name: Invoke `platform cc`.
+- name: Run `platform cc`.
   shell: "{{ platformsh_install_dir }}/platform cc"
   become: "{{ vagrant_user }}"
   args:
@@ -45,7 +45,7 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Invoke `platform` to generate drush aliases.
+- name: Run `platform` to generate drush aliases.
   shell: "{{ platformsh_install_dir }}/platform"
   become: "{{ vagrant_user }}"
 
@@ -66,7 +66,7 @@
 
 # ------------------------------------------------------------------------------
 
-# TODO: D7 only. Add condition.
+# TODO: Drupal only. Add condition?
 - name: Add database config to settings.local.php.
   template:
     src: settings.local.php
