@@ -28,6 +28,14 @@
 
 # ------------------------------------------------------------------------------
 
+- name: Get platform project if not present
+  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }}"
+  args:
+    chdir: "{{ platformsh_app_root }}"
+    creates: "{{ platformsh_app_root }}/.platform.app.yaml"
+
+# ------------------------------------------------------------------------------
+
 - name: Run `platform build`
   shell: "{{ platformsh_install_dir }}/platform build"
   args:
@@ -48,7 +56,7 @@
   changed_when: false
 
 - name: Ensure drush aliases use the correct group name.
-  shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --group={{ platformsh_app_id }} -y"
+  shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --group={{ platformsh_app_name }} -y"
   args:
     chdir: "{{ platformsh_app_root }}"
   become: "{{ vagrant_user }}"
@@ -65,5 +73,5 @@
 # ------------------------------------------------------------------------------
 
 - name: Sync database from remote master environment
-  shell: "drush sql-sync @{{ platformsh_app_id }}.master @{{ platformsh_app_id }}._local -y"
+  shell: "drush sql-sync @{{ platformsh_app_name }}.master @{{ platformsh_app_name }}._local -y"
   become: "{{ vagrant_user }}"
