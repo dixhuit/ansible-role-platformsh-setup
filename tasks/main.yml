@@ -33,12 +33,19 @@
     path: "{{ platformsh_app_root }}"
     state: directory
 
-- name: Get and build platform project if not present
-  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }} --build"
+- name: Get platform project if not present
+  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }}"
+  become: "{{ vagrant_user }}"
+  args:
+    creates: "{{ platformsh_app_root }}/.platform.app.yaml"
+
+# ------------------------------------------------------------------------------
+
+- name: Run `platform build`
+  shell: "{{ platformsh_install_dir }}/platform build"
   become: "{{ vagrant_user }}"
   args:
     chdir: "{{ platformsh_app_root }}"
-    creates: "{{ platformsh_app_root }}/.platform.app.yaml"
 
 # ------------------------------------------------------------------------------
 
