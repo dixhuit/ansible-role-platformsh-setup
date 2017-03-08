@@ -64,7 +64,7 @@
   args:
     chdir: "{{ platformsh_app_root }}"
   become: "{{ vagrant_user }}"
-  when: platformsh_drush_aliases_group_name.stdout != platformsh_app_id
+  when: platformsh_drush_aliases_group_name.stdout != platformsh_app_name
 
 # ------------------------------------------------------------------------------
 
