@@ -28,11 +28,11 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Get platform project if not present.
-  shell: "{{ platformsh_install_dir }}/platform get {{ platformsh_app_id }} {{ platformsh_app_name }} -y"
+- name: "Set platform project remote and create .platform/local/project.yaml"
+  shell: "{{ platformsh_install_dir }}/platform project:set-remote {{ platformsh_app_id }}"
   become: "{{ vagrant_user }}"
   args:
-    chdir: "{{ platformsh_app_parent }}"
+    chdir: "{{ platformsh_app_root }}"
     creates: "{{ platformsh_app_root }}/.platform.app.yaml"
 
 # ------------------------------------------------------------------------------
