@@ -45,8 +45,10 @@
 
 # ------------------------------------------------------------------------------
 
-- name: Run `platform` to generate drush aliases.
-  shell: "{{ platformsh_install_dir }}/platform"
+- name: Generate drush aliases.
+  shell: "{{ platformsh_install_dir }}/platform local:drush-aliases"
+  args:
+    chdir: "{{ platformsh_app_root }}"
   become: "{{ vagrant_user }}"
 
 - name: Check group name of current drush aliases.
@@ -57,7 +59,7 @@
   become: "{{ vagrant_user }}"
   changed_when: false
 
-- name: Ensure drush aliases use the correct group name.
+- name: Ensure drush aliases use the app name as the group name.
   shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --group={{ platformsh_app_name }} -y"
   args:
     chdir: "{{ platformsh_app_root }}"
