@@ -33,7 +33,6 @@
   become: "{{ vagrant_user }}"
   args:
     chdir: "{{ platformsh_app_root }}"
-    creates: "{{ platformsh_app_root }}/.platform.app.yaml"
 
 # ------------------------------------------------------------------------------
 
