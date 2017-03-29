@@ -12,4 +12,4 @@ platformsh_config_dir: "/home/{{ platformsh_user }}/.platformsh"
 platformsh_app_root: /var/www/drupalvm
 
 # Preferences
-platformsh_db_sync: true
+platformsh_sql_sync: true

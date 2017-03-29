@@ -79,4 +79,4 @@
 - name: Sync database from remote master environment.
   shell: "drush sql-sync @{{ platformsh_app_name }}.master @{{ platformsh_app_name }}._local -y"
   become: "{{ vagrant_user }}"
-  when: platformsh_db_sync
+  when: platformsh_sql_sync
