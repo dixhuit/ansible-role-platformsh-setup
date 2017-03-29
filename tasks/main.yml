@@ -72,9 +72,11 @@
   template:
     src: settings.local.php
     dest: "{{ platformsh_app_root }}/.platform/local/shared/settings.local.php"
+    force: no
 
 # ------------------------------------------------------------------------------
 
 - name: Sync database from remote master environment.
   shell: "drush sql-sync @{{ platformsh_app_name }}.master @{{ platformsh_app_name }}._local -y"
   become: "{{ vagrant_user }}"
+  when: platformsh_db_sync
