@@ -1,7 +1,14 @@
 ---
 
-# Running `platform cc` ensures that the cli will create its ".platformsh" and
-# "cache" directories if required.
+- name: Ensure .platformsh directory is present
+  file:
+    path: "{{ platformsh_config_dir }}"
+    state: directory
+    mode: 0700
+  become: "{{ platformsh_user }}"
+
+# Running `platform cc` ensures that the cli will create its "cache" directory
+# if required.
 - name: Run `platform cc`.
   shell: "{{ platformsh_install_dir }}/platform cc"
   become: "{{ platformsh_user }}"
