@@ -4,6 +4,7 @@ platformsh_token: null
 # Platform.sh app
 platformsh_app_id: xxxxxxxxxxxxx
 platformsh_app_name: myapp
+platformsh_app_drupal: false
 
 # Local environment
 platformsh_user: vagrant

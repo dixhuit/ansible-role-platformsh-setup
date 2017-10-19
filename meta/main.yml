@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: danbohea
-  description: Helps local Drupal project setup when using the Platform.sh CLI.
+  description: Helps local project setup when using the Platform.sh CLI.
   license: MIT
   min_ansible_version: 2.1
   galaxy_tags:
