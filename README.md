@@ -1,6 +1,6 @@
 # Ansible role: Platform.sh local setup
 
-[![Build Status](https://travis-ci.org/danbohea/ansible-role-platformsh.svg?branch=master)](https://travis-ci.org/danbohea/ansible-role-platformsh)
+[![Build Status](https://travis-ci.org/danbohea/ansible-role-platformsh-setup.svg?branch=master)](https://travis-ci.org/danbohea/ansible-role-platformsh-setup)
 
 Helps automate the setup of your Platform.sh project in local development when using the Platform.sh CLI.
 
