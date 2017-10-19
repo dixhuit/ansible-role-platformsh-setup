@@ -6,6 +6,40 @@ galaxy_info:
   description: Automate project setup when using the Platform.sh CLI.
   license: MIT
   min_ansible_version: 2.1
+  platforms:
+  - name: MacOSX
+    versions:
+    - all
+  - name: EL
+    versions:
+    - all
+  - name: GenericUNIX
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: opensuse
+    versions:
+    - all
+  - name: GenericBSD
+    versions:
+    - all
+  - name: FreeBSD
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: SLES
+    versions:
+    - all
+  - name: GenericLinux
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
   galaxy_tags:
     - platformsh
     - drupal

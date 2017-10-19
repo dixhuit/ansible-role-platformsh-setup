@@ -79,7 +79,7 @@ None.
 
 ## Example Playbook
 
-```
+```yaml
 - hosts: localhost
   connection: local
 
