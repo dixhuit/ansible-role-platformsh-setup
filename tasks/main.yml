@@ -52,25 +52,25 @@
 # ------------------------------------------------------------------------------
 
 - name: Drush aliases (Drupal only)
-  - block:
+    block:
 
-    - name: Generate drush aliases.
-      shell: "{{ platformsh_install_dir }}/platform local:drush-aliases"
-      args:
-        chdir: "{{ platformsh_app_root }}"
+      - name: Generate drush aliases.
+        shell: "{{ platformsh_install_dir }}/platform local:drush-aliases"
+        args:
+          chdir: "{{ platformsh_app_root }}"
 
-    - name: Check group name of current drush aliases.
-      shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --pipe"
-      args:
-        chdir: "{{ platformsh_app_root }}"
-      register: platformsh_drush_aliases_group_name
-      changed_when: false
+      - name: Check group name of current drush aliases.
+        shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --pipe"
+        args:
+          chdir: "{{ platformsh_app_root }}"
+        register: platformsh_drush_aliases_group_name
+        changed_when: false
 
-    - name: Ensure drush aliases use the app name as the group name.
-      shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --group={{ platformsh_app_name }} -y"
-      args:
-        chdir: "{{ platformsh_app_root }}"
-      when: platformsh_drush_aliases_group_name.stdout != platformsh_app_name
+      - name: Ensure drush aliases use the app name as the group name.
+        shell: "{{ platformsh_install_dir }}/platform local:drush-aliases --group={{ platformsh_app_name }} -y"
+        args:
+          chdir: "{{ platformsh_app_root }}"
+        when: platformsh_drush_aliases_group_name.stdout != platformsh_app_name
 
-    become: "{{ platformsh_user }}"
-    when: platformsh_app_drupal
+  become: "{{ platformsh_user }}"
+  when: platformsh_app_drupal
