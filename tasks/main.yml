@@ -45,7 +45,7 @@
 
 - name: Run `platform build`.
   shell: "{{ platformsh_install_dir }}/platform build"
-  become: "{{ platformsh_user }}"
+  become: true
   args:
     chdir: "{{ platformsh_app_root }}"
 
